@@ -42,15 +42,12 @@
       const styleSheet = document.createElement("style");
       styleSheet.textContent = `
   .carousel-with-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
+    position: relative;
   }
 
   .carousel-padding-wrapper {
     padding: 0 15px 0 15px;
-    margin:0 50px 0 50px;
   }
 
   .product-carousel-container {
@@ -206,6 +203,8 @@
     font-family: Quicksand-Medium;
     font-weight: 400;
     flex-shrink: 0;
+    position: absolute;
+    top: 50%;
   }
 
   .button:hover {
@@ -220,7 +219,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    position: absolute;
   }
   .prev-button::before {
     transform: rotate(180deg);
@@ -229,11 +227,12 @@
     color: #ff8c00;
   }
   .prev-button {
-    left:-25px;
+    right:100%;
     margin:0;
   }
   .next-button {
-    right:25px;
+    left:100%;
+    margin:0;
   }
 
   .product-brand {
@@ -333,7 +332,6 @@
     }
     .product-card-wrapper {
       flex: 0 0 calc((100% - 60px) / 4);
-      overflow:clip;
     }
   }
 
@@ -343,7 +341,6 @@
     }
     .product-card-wrapper {
       flex: 0 0 calc((100% - 40px) / 3);
-      overflow:clip;
     }
 
   }
@@ -355,9 +352,7 @@
     }
     .product-card-wrapper {
       flex: 0 0 calc((100% - 20px) / 2);
-      overflow:clip;
     }
-
   }
 
   @media (max-width: 768px) {
@@ -366,7 +361,6 @@
     }
     .product-card-wrapper {
       flex: 0 0 calc((100% - 20px) / 2);
-      overflow:clip;
     }
   }
 
@@ -376,36 +370,18 @@
     }
     .product-card-wrapper {
       flex: 0 0 calc((100% - 45px) / 2);
-      overflow:clip;
     }
   }
   @media (max-width: 481px) {
     .product-carousel-container {
       max-width: 400px;
+      flex:0 1 auto;
     }
     .product-card-wrapper {
       flex: 0 0 calc((100% - 20px) / 2);
-      overflow:clip;
     }
     .product-carousel-title {
       background-color: transparent;
-      padding: 2rem 4rem;
-      font-size: 2.5rem;
-    }
-    .carousel-padding-wrapper {
-      padding: 0 10px;
-    }
-    .product-card {
-      height: 480px;
-    }
-    .add-to-cart {
-      width: 100%;
-      font-family: Poppins-cursive;
-      font-size: 13.44px;
-      padding: 15px 20px;
-      height: 48px;
-      margin: 19px 0 0 0;
-      border: 1px transparent;
     }
   }
 `;
@@ -436,7 +412,7 @@
 
       const title = document.createElement("h2");
       title.className = "product-carousel-title";
-      title.textContent = "x";
+      title.textContent = "Beğenebileceğinizi Düşündüklerimiz";
       carouselWrapper.appendChild(title);
 
       carousel = document.createElement("div");
