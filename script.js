@@ -142,7 +142,7 @@
     background-size: contain;
     background-image: url("https://www.e-bebek.com/assets/svg/default-hover-favorite.svg");
   }
-      .product-favorite.active::before{
+     .product-favorite.active::before{
     width: 50px;
     height: 50px;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 25 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.6339 2.97449C21.4902 1.83033 19.9388 1.1875 18.3211 1.1875C16.7034 1.1875 15.152 1.83033 14.0084 2.97449L12.8332 4.14968L11.658 2.97449C9.27612 0.592628 5.41435 0.592627 3.03249 2.97449C0.650628 5.35635 0.650628 9.21811 3.03249 11.6L4.20769 12.7752L12.8332 21.4007L21.4587 12.7752L22.6339 11.6C23.778 10.4564 24.4208 8.90494 24.4208 7.28723C24.4208 5.66952 23.778 4.11811 22.6339 2.97449Z' stroke='%23FF8A00' stroke-width='1.0' fill='%23FF8A00'/%3E%3C/svg%3E");
@@ -282,27 +282,53 @@
     
   }
   
-  .discount-tag {
-    background-color: #f28e00;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-left: 5px;
+  .discount-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 4px;
   }
   
-  .cart-discount {
+  .original-price-discount {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 16px;
+    font-weight: 500;
     font-family: Poppins, "cursive";
-    background: #eaf8f3;
-    color: #4bb788;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 1.08rem;
-    text-align: center;
-    display: inline-block;
-    padding: 0;
-    padding: 0 2px 0 2px;
+    line-height: 1;
+    justify-content: center;
   }
+  
+  .discount-percentage {
+    color: #00a365;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Poppins, "cursive";
+    line-height: 1;
+  }
+  
+  .discount-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .discount-badge:before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='275 325 450 450' xml:space='preserve'%3E%3Cg transform='translate(540 540)'/%3E%3Cg transform='translate(540 540)'/%3E%3Cpath style='stroke:none;stroke-width:0;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:%2300a365;fill-rule:nonzero;opacity:1' vector-effect='non-scaling-stroke' transform='translate(-302.526 -241.932)scale(11.22)' d='M90.242 70.92c0 1.593-2.651 2.817-3.044 4.286-.406 1.52 1.266 3.903.495 5.234-.781 1.35-3.688 1.088-4.784 2.184s-.834 4.002-2.184 4.784c-1.331.77-3.714-.902-5.234-.495-1.469.393-2.693 3.044-4.286 3.044s-2.817-2.651-4.286-3.044c-1.52-.406-3.903 1.266-5.234.495-1.35-.781-1.088-3.688-2.184-4.784s-4.002-.834-4.784-2.184c-.77-1.331.902-3.714.495-5.234-.393-1.469-3.044-2.693-3.044-4.286s2.651-2.817 3.044-4.286c.406-1.52-1.266-3.903-.495-5.234.781-1.35 3.688-1.088 4.784-2.184s.834-4.002 2.184-4.784c1.331-.77 3.714.902 5.234.495 1.469-.393 2.693-3.044 4.286-3.044s2.817 2.651 4.286 3.044c1.52.406 3.903-1.266 5.234-.495 1.35.781 1.088 3.688 2.184 4.784s4.002.834 4.784 2.184c.77 1.331-.902 3.714-.495 5.234.393 1.469 3.043 2.693 3.043 4.286'/%3E%3Cpath style='stroke:none;stroke-width:0;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:%23fff;fill-rule:nonzero;opacity:1' vector-effect='non-scaling-stroke' transform='matrix(-8.79 0 0 -11.08 599.74 672.96)' d='M11 18.791V7.621l-4.88 4.88c-.39.39-1.03.39-1.42 0a.996.996 0 0 1 0-1.41l6.59-6.59a.996.996 0 0 1 1.41 0l6.6 6.58a.997.997 0 1 1-1.41 1.41L13 7.621v11.17c0 .55-.45 1-1 1s-1-.45-1-1'/%3E%3Cg transform='matrix(0 0)'/%3E%3Cg transform='matrix(0 0)'/%3E%3C/svg%3E");
+    background-size: contain;
+
+  }
+  
+  .final-price {
+    font-family: Poppins, "cursive";
+    color: #00a365;
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+
 .product-details {
     padding: 0 10px;
     margin-bottom: 60px;
@@ -522,16 +548,35 @@
         priceContainer.className = "product-price";
 
         if (product.price < product.original_price) {
-          const originalPrice = document.createElement("div");
+          const discountPercentage = Math.round(
+            ((product.original_price - product.price) /
+              product.original_price) *
+              100
+          );
+
+          const discountContainer = document.createElement("div");
+          discountContainer.className = "discount-container";
+
+          const originalPrice = document.createElement("span");
+          originalPrice.className = "original-price-discount";
           originalPrice.textContent = `${product.original_price.toFixed(2)} TL`;
-          originalPrice.style.textDecoration = "line-through";
-          originalPrice.style.color = "#999";
-          originalPrice.style.fontSize = "24px";
-          priceContainer.appendChild(originalPrice);
-          const cartDiscount = document.createElement("div");
-          cartDiscount.className = "cart-discount";
-          cartDiscount.textContent = `Sepette ${product.price.toFixed(2)} TL`;
-          priceContainer.appendChild(cartDiscount);
+          discountContainer.appendChild(originalPrice);
+
+          const discountPercentageElement = document.createElement("span");
+          discountPercentageElement.className = "discount-percentage";
+          discountPercentageElement.textContent = `%${discountPercentage}`;
+          discountContainer.appendChild(discountPercentageElement);
+
+          const discountBadge = document.createElement("div");
+          discountBadge.className = "discount-badge";
+          discountContainer.appendChild(discountBadge);
+
+          priceContainer.appendChild(discountContainer);
+
+          const finalPrice = document.createElement("div");
+          finalPrice.className = "final-price";
+          finalPrice.textContent = `${product.price.toFixed(2)} TL`;
+          priceContainer.appendChild(finalPrice);
         } else {
           priceContainer.textContent = `${product.price.toFixed(2)} TL`;
         }
